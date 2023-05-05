@@ -1,0 +1,58 @@
+1
+2
+3
+4
+5
+6
+for VARIABLE in 1 2 3 4 5 .. N
+do
+    command1
+    command2
+    commandN
+done
+
+
+
+#!/bin/bash
+# declare an array called array and define 3 vales
+array=( one two three )
+for i in "${array[@]}"
+do
+	echo "$i"
+done
+
+
+
+declare -a mahabharata
+Then add values or characters from the epic poem:
+
+mahabharata[0]="Krishna"
+mahabharata[1]="Yudhishthira"
+mahabharata[2]="Bheema"
+mahabharata[3]="Arjuna"
+mahabharata[4]="Draupadi"
+mahabharata[5]="Duryodhana"
+Next get or find bash shell array length ( number of elements ) using the following syntax:
+
+length=${#mahabharata[@]}
+echo "Bash array '\${mahabharata}' has total ${length} element(s) (length)"
+Finally use the three-expression (C style) bash for loops syntax:
+
+for (( j=0; j<${length}; j++ ));
+do
+  printf "Current index %d with value %s\n" $j "${mahabharata[$j]}"
+done
+Here is how it looks:
+
+#!/usr/bin/env bash
+# declare an array variable
+declare -a mahabharata=("Krishna" "Yudhishthira" "Bheema" "Arjuna" "Draupadi" "Duryodhana")
+ 
+# get length of an array
+length=${#mahabharata[@]}
+ 
+# use C style for loop syntax to read all values and indexes
+for (( j=0; j<length; j++ ));
+do
+  printf "Current index %d with value %s\n" $j "${mahabharata[$j]}"
+done
